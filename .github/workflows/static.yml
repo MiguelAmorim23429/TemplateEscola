@@ -1,0 +1,55 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 1. Instalar o Node.js no servidor do GitHub
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 2. Instalar as dependências do seu projeto (React, Vite, etc.)
+      - name: Install dependencies
+        run: npm install
+
+      # 3. Compilar o projeto para gerar a pasta 'dist'
+      - name: Build website
+        run: npm run build
+
+      # 4. Fazer o upload APENAS da pasta 'dist' gerada pelo build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist' # 👈 Alterado de '.' para './dist'
+
+      # 5. Publicar no GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
