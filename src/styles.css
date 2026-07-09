@@ -33,6 +33,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--c-text);
@@ -268,11 +273,13 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 .logo-area {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 .logo-icon {
   background: var(--c-primary);
@@ -299,17 +306,20 @@ h1, h2, h3, h4, h5, h6 {
   color: #64748b;
   font-weight: 500;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 .nav-menu {
   display: flex;
-  gap: 28px;
+  gap: 18px;
+  flex-wrap: nowrap;
 }
 .nav-link {
   font-weight: 600;
   color: #475569;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 .nav-link:hover {
   color: var(--c-primary);
@@ -338,6 +348,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .cta-button:hover {
   background: var(--c-secondary);
@@ -351,16 +363,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* MOBILE NAV */
+/* header-wrapper uses backdrop-filter, which makes it the containing block for
+   fixed-position descendants — so this panel is positioned absolutely relative
+   to it instead of the viewport, and sized to fill the rest of the screen. */
 .mobile-nav-panel {
-  position: fixed;
-  inset: 0;
-  top: 114px; /* below util & header */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--header-h, 114px));
   background: #fff;
   z-index: 98;
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: auto;
 }
 .mobile-nav-link {
   font-size: 1.2rem;
@@ -558,7 +576,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   transition: var(--transition);
+}
+.school-tab-button svg {
+  flex-shrink: 0;
 }
 .school-tab-button:hover {
   border-color: var(--c-primary);
@@ -573,6 +595,11 @@ h1, h2, h3, h4, h5, h6 {
 .school-tab-info {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.school-tab-name {
+  word-break: break-word;
 }
 .school-tab-name {
   font-size: 1rem;
@@ -1181,6 +1208,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   .schools-grid {
     grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
   }
   .event-list {
     grid-template-columns: 1fr;
@@ -1214,6 +1243,51 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     gap: 8px;
   }
+  .util-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px 16px;
+  }
+  .util-links {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 20px;
+  }
+  .util-links::-webkit-scrollbar {
+    display: none;
+  }
+  .util-link {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .theme-selector {
+    justify-content: center;
+  }
+  .theme-selector > span {
+    display: none;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-actions .cta-button,
+  .hero-actions .btn-secondary {
+    justify-content: center;
+  }
+  .hero-deco-badge {
+    top: -12px;
+    right: 8px;
+    padding: 10px;
+  }
+  .school-detail-body {
+    padding: 20px;
+  }
+  .menu-content, .menu-header {
+    padding: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1222,5 +1296,11 @@ h1, h2, h3, h4, h5, h6 {
   }
   .menu-days-nav {
     flex-direction: column;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .s-title {
+    font-size: 1.8rem;
   }
 }

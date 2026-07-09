@@ -1,21 +1,21 @@
 const CONFIG = {
-  nomeAgrupamento: "Agrupamento de Escolas Infante D. Henrique",
-  sigla:           "AEIDH",
+  nomeAgrupamento: "Agrupamento de Escolas",
+  sigla:           "AE",
   municipio:       "Porto",
   temaInicial:     0,
 
   contacto: {
     morada:    "Avenida das Escolas, 456\n4100-000 Porto",
     telefone:  "+351 220 000 000",
-    email:     "geral@ae-infantedenrique.edu.pt",
+    email:     "geral@agrupamento-escolas.pt",
     horario:   "Segunda a Sexta: 09:00 - 16:30 (Secretaria)",
-    copyright: "\u00a9 2026 Agrupamento de Escolas Infante D. Henrique"
+    copyright: "\u00a9 2026 Agrupamento de Escolas"
   },
 
   plataformas: {
-    inovar:    "https://inovar.ae-infantedenrique.edu.pt",
-    giae:      "https://giae.ae-infantedenrique.edu.pt",
-    moodle:    "https://moodle.ae-infantedenrique.edu.pt",
+    inovar:    "https://inovar.agrupamento-escolas.pt",
+    giae:      "https://giae.agrupamento-escolas.pt",
+    moodle:    "https://moodle.agrupamento-escolas.pt",
     teams:     "https://teams.microsoft.com",
     mega:      "https://www.manuaisescolares.pt"
   },
@@ -37,12 +37,12 @@ const CONFIG = {
 
   escolas: [
     {
-      nome: "Escola Secundária Infante D. Henrique",
+      nome: "Escola Secundária Sede",
       tipo: "Escola Sede",
       niveis: "3.º Ciclo, Ensino Secundário, Cursos Profissionais",
       morada: "Avenida das Escolas, 456, 4100-000 Porto",
       telefone: "+351 220 000 001",
-      email: "secundaria.sede@ae-infantedenrique.edu.pt",
+      email: "secundaria.sede@agrupamento-escolas.pt",
       imagem: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=500&fit=crop&q=80",
       coordenadas: "41.1622, -8.6439"
     },
@@ -52,7 +52,7 @@ const CONFIG = {
       niveis: "2.º e 3.º Ciclos do Ensino Básico",
       morada: "Rua de Ramalde Central, 123, 4120-000 Porto",
       telefone: "+351 220 000 002",
-      email: "eb23.ramalde@ae-infantedenrique.edu.pt",
+      email: "eb23.ramalde@agrupamento-escolas.pt",
       imagem: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=500&fit=crop&q=80",
       coordenadas: "41.1685, -8.6512"
     },
@@ -62,7 +62,7 @@ const CONFIG = {
       niveis: "1.º Ciclo do Ensino Básico",
       morada: "Rua das Flores Pedagógicas, 8, 4100-111 Porto",
       telefone: "+351 220 000 003",
-      email: "eb1.bairro@ae-infantedenrique.edu.pt",
+      email: "eb1.bairro@agrupamento-escolas.pt",
       imagem: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&h=500&fit=crop&q=80",
       coordenadas: "41.1610, -8.6390"
     },
@@ -72,7 +72,7 @@ const CONFIG = {
       niveis: "Educação Pré-Escolar",
       morada: "Travessa do Recreio Alegre, 45, 4100-222 Porto",
       telefone: "+351 220 000 004",
-      email: "ji.aldoar@ae-infantedenrique.edu.pt",
+      email: "ji.aldoar@agrupamento-escolas.pt",
       imagem: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&h=500&fit=crop&q=80",
       coordenadas: "41.1650, -8.6601"
     }
